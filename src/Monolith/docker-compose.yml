@@ -37,6 +37,7 @@ services:
           KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
           KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     migrator:
+        image: classifiedads.migrator
         build:
           context: .
           dockerfile: ./ClassifiedAds.Migrator/Dockerfile
@@ -50,6 +51,7 @@ services:
           CheckDependency__Enabled: "true"
           CheckDependency__Host: "db:1433"
     identityserver:
+        image: classifiedads.identityserver
         build:
           context: .
           dockerfile: ./ClassifiedAds.IdentityServer/Dockerfile
@@ -70,6 +72,7 @@ services:
           MessageBroker__RabbitMQ__HostName: "rabbitmq"
           MessageBroker__AzureQueue__ConnectionString: "DefaultEndpointsProtocol=https;AccountName=xxx;AccountKey=xxx;EndpointSuffix=core.windows.net"
     notificationserver:
+        image: classifiedads.notificationserver
         build:
           context: .
           dockerfile: ./ClassifiedAds.NotificationServer/Dockerfile
@@ -84,6 +87,7 @@ services:
           ASPNETCORE_ENVIRONMENT: "Development"
           ConnectionStrings__ClassifiedAds: "Server=db;Database=ClassifiedAds;User Id=sa;Password=sqladmin123!@#;MultipleActiveResultSets=true"
     webapi:
+        image: classifiedads.webapi
         build:
           context: .
           dockerfile: ./ClassifiedAds.WebAPI/Dockerfile
@@ -113,6 +117,7 @@ services:
           MessageBroker__Kafka__BootstrapServers: "kafka:9092"
           MessageBroker__AzureQueue__ConnectionString: "DefaultEndpointsProtocol=https;AccountName=xxx;AccountKey=xxx;EndpointSuffix=core.windows.net"
     webmvc:
+        image: classifiedads.webmvc
         build:
           context: .
           dockerfile: ./ClassifiedAds.WebMVC/Dockerfile
@@ -158,6 +163,7 @@ services:
           MessageBroker__Kafka__BootstrapServers: "kafka:9092"
           MessageBroker__AzureQueue__ConnectionString: "DefaultEndpointsProtocol=https;AccountName=xxx;AccountKey=xxx;EndpointSuffix=core.windows.net"
     blazor:
+        image: classifiedads.blazor
         build:
           context: .
           dockerfile: ./ClassifiedAds.Blazor/Dockerfile
@@ -178,6 +184,7 @@ services:
           CookiePolicyOptions__MinimumSameSitePolicy: "Lax"
           CookiePolicyOptions__Secure: "None" 
     backgroundserver:
+        image: classifiedads.backgroundserver
         build:
           context: .
           dockerfile: ./ClassifiedAds.BackgroundServer/Dockerfile
@@ -208,6 +215,7 @@ services:
           Notification__Sms__Twilio__AuthToken: ""
           Notification__Sms__Twilio__FromNumber: ""
     graphql:
+        image: classifiedads.graphql
         build:
           context: .
           dockerfile: ./ClassifiedAds.GraphQL/Dockerfile

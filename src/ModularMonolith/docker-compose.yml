@@ -19,6 +19,7 @@ services:
           - 1025:1025 # smtp server
           - 8025:8025 # web ui
     migrator:
+        image: classifiedads.modularmonolith.migrator
         build:
           context: .
           dockerfile: ./ClassifiedAds.Migrator/Dockerfile
@@ -32,6 +33,7 @@ services:
           CheckDependency__Enabled: "true"
           CheckDependency__Host: "db:1433"
     identityserver:
+        image: classifiedads.modularmonolith.identityserver
         build:
           context: .
           dockerfile: ./ClassifiedAds.IdentityServer/Dockerfile
@@ -52,6 +54,7 @@ services:
           MessageBroker__Provider: "RabbitMQ"
           MessageBroker__RabbitMQ__HostName: "rabbitmq"
     webapi:
+        image: classifiedads.modularmonolith.webapi
         build:
           context: .
           dockerfile: ./ClassifiedAds.WebAPI/Dockerfile
@@ -74,6 +77,7 @@ services:
           Storage__Provider: "Local"
           Storage__Local__Path: "/files"
     backgroundserver:
+        image: classifiedads.modularmonolith.backgroundserver
         build:
           context: .
           dockerfile: ./ClassifiedAds.BackgroundServer/Dockerfile

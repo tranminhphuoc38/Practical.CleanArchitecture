@@ -19,6 +19,7 @@ services:
           - 1025:1025 # smtp server
           - 8025:8025 # web ui
     auditlog_api:
+        image: classifiedads.services.auditlog.api
         build:
           context: .
           dockerfile: ./Services.AuditLog/ClassifiedAds.Services.AuditLog.Api/Dockerfile
@@ -35,6 +36,7 @@ services:
           Services__Identity__Grpc: "https://identity_grpc"
           Services__Notification__Grpc: "https://notification_grpc"
     auditlog_grpc:
+        image: classifiedads.services.auditlog.grpc
         build:
           context: .
           dockerfile: ./Services.AuditLog/ClassifiedAds.Services.AuditLog.Grpc/Dockerfile
@@ -50,6 +52,7 @@ services:
           Services__Identity__Grpc: "https://identity_grpc"
           Services__Notification__Grpc: "https://notification_grpc"
     identity_api:
+        image: classifiedads.services.identity.api
         build:
           context: .
           dockerfile: ./Services.Identity/ClassifiedAds.Services.Identity.Api/Dockerfile
@@ -66,6 +69,7 @@ services:
           Services__Identity__Grpc: "https://identity_grpc"
           Services__Notification__Grpc: "https://notification_grpc"
     identity_authserver:
+        image: classifiedads.services.identity.authserver
         build:
           context: .
           dockerfile: ./Services.Identity/ClassifiedAds.Services.Identity.AuthServer/Dockerfile
@@ -87,6 +91,7 @@ services:
           Services__Identity__Grpc: "https://identity_grpc"
           Services__Notification__Grpc: "https://notification_grpc"
     identity_grpc:
+        image: classifiedads.services.identity.grpc
         build:
           context: .
           dockerfile: ./Services.Identity/ClassifiedAds.Services.Identity.Grpc/Dockerfile
@@ -102,6 +107,7 @@ services:
           Services__Identity__Grpc: "https://identity_grpc"
           Services__Notification__Grpc: "https://notification_grpc"
     notification_api:
+        image: classifiedads.services.notification.api
         build:
           context: .
           dockerfile: ./Services.Notification/ClassifiedAds.Services.Notification.Api/Dockerfile
@@ -120,6 +126,7 @@ services:
           Services__Identity__Grpc: "https://identity_grpc"
           Services__Notification__Grpc: "https://notification_grpc"
     notification_background:
+        image: classifiedads.services.notification.background
         build:
           context: .
           dockerfile: ./Services.Notification/ClassifiedAds.Services.Notification.Background/Dockerfile
@@ -145,6 +152,7 @@ services:
           Services__Identity__Grpc: "https://identity_grpc"
           Services__Notification__Grpc: "https://notification_grpc"
     notification_grpc:
+        image: classifiedads.services.notification.grpc
         build:
           context: .
           dockerfile: ./Services.Notification/ClassifiedAds.Services.Notification.Grpc/Dockerfile
@@ -162,6 +170,7 @@ services:
           Services__Identity__Grpc: "https://identity_grpc"
           Services__Notification__Grpc: "https://notification_grpc"
     product_api:
+        image: classifiedads.services.product.api
         build:
           context: .
           dockerfile: ./Services.Product/ClassifiedAds.Services.Product.Api/Dockerfile
@@ -178,6 +187,7 @@ services:
           Services__Identity__Grpc: "https://identity_grpc"
           Services__Notification__Grpc: "https://notification_grpc"
     storage_api:
+        image: classifiedads.services.storage.api
         build:
           context: .
           dockerfile: ./Services.Storage/ClassifiedAds.Services.Storage.Api/Dockerfile
@@ -199,6 +209,7 @@ services:
           Services__Identity__Grpc: "https://identity_grpc"
           Services__Notification__Grpc: "https://notification_grpc"
     ocelot:
+        image: classifiedads.gateways.ocelot
         build:
           context: .
           dockerfile: ./Gateways.Ocelot/ClassifiedAds.Gateways.Ocelot/Dockerfile
